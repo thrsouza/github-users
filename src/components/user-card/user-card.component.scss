@@ -1,0 +1,45 @@
+user-card {
+  width: 95%;
+  max-width: 600px;
+  color: var(--ink);
+  background-color: var(--darker-white);
+  border-radius: 4px;
+
+  .user-card-header {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    border-bottom: 1px dashed var(--darkest-white);
+
+    img {
+      height: 64px;
+      width: 64px;
+      border-radius: 50px;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 12px;
+    }
+  }
+
+  .user-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+
+    strong {
+      font-size: 14px;
+      color: var(--ink-transparent);
+    }
+
+    p {
+      margin: 4px 0 16px;
+    }
+
+    a {
+      color: var(--secondary-color);
+    }
+  }
+}

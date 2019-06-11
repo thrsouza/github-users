@@ -1,0 +1,21 @@
+<header id="user-list-header">
+  <i class="fab fa-github"></i>
+  <span>Github Users</span>
+</header>
+
+<section id="user-list-content">
+
+  <user-card ng-repeat="user in $ctrl.users" user="user"
+    onRemove="$ctrl.handleRemoveUser"></user-card>
+
+  <div class="user-list-empty" ng-if="$ctrl.users.length == 0">
+    <i class="fab fa-github-alt"></i>
+    <span>Github Users Empty!</span>
+  </div>
+
+  <!-- <user-form></user-form> -->
+
+  <div class="fab-button" ng-click="$ctrl.handleAddUser()">
+    <i class="fas fa-plus"></i>
+  </div>
+</section>

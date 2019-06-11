@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1,
+      initial-scale=1, user-scalable=yes">
+    <title>Github Users - App</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+      rel="stylesheet">
+
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous">
+
+    <style>
+      :root {
+        --primary-color: #24292e;
+        --secondary-color: #3a3c3f;
+
+        --white: #ffffff;
+        --dark-white: #fcfcfd;
+        --darker-white: #f5f4f6;
+        --darkest-white: #ebeaed;
+
+        --ink: #24292e;
+        --ink-transparent: rgba(36, 41, 46, 0.6);
+        --background-color: var(--darkest-white);
+      }
+      ::selection {
+        background-color: var(--ink-transparent);
+        color: var(--white);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        position: relative;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        background-color: var(--background-color);
+      }
+    </style>
+  </head>
+  <body>
+    <user-list unresolved></user-list>
+    <script type="module" src="<%= appBundle %>"></script>
+  </body>
+</html>

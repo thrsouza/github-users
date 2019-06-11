@@ -1,0 +1,17 @@
+<section>
+  <section class="user-card-header">
+    <img src="{{$ctrl.user.avatar_url}}" />
+    <div>
+      <strong>{{$ctrl.user.name}}</strong>
+      <span>@{{$ctrl.user.login}}</span>
+    </div>
+  </section>
+  <section class="user-card-content">
+    <strong>BIO:</strong>
+    <p>{{$ctrl.user.bio || 'Não determinado'}}</p>
+    <div>
+      <strong>URL:</strong>
+      <a href="{{$ctrl.user.html_url}}" target="__blank">{{$ctrl.user.html_url}}</a>
+    </div>
+  </section>
+</section>
