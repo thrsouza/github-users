@@ -56,8 +56,11 @@ class UserListController {
   }
 
   handleAddUser() {
-    // eslint-disable-next-line no-console
-    console.log(`I'm here!`);
+    const userform = this.$.querySelector('user-form');
+
+    if (userform.hasAttribute('hidden')) {
+      userform.removeAttribute('hidden');
+    }
   }
 
   handleRemoveUser(user) {
