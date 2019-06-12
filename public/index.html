@@ -25,12 +25,14 @@
         --darker-white: #f5f4f6;
         --darkest-white: #ebeaed;
 
+        --red: #ff5555;
+
         --ink: #24292e;
-        --ink-transparent: rgba(36, 41, 46, 0.6);
+        --black-transparent: rgba(0, 0, 0, 0.4);
         --background-color: var(--darkest-white);
       }
       ::selection {
-        background-color: var(--ink-transparent);
+        background-color: var(--black-transparent);
         color: var(--white);
       }
 
@@ -49,7 +51,7 @@
     </style>
   </head>
   <body>
-    <user-list unresolved></user-list>
+    <user-list></user-list>
     <script type="module" src="<%= appBundle %>"></script>
   </body>
 </html>

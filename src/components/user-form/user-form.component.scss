@@ -1,9 +1,5 @@
 user-form {
-  &[hidden] {
-    display: none;
-  }
-
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -13,16 +9,15 @@ user-form {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: var(--ink-transparent);
+  background-color: var(--black-transparent);
   z-index: 100;
 
-  section {
+  #user-form {
     display: flex;
     flex-direction: column;
 
     width: 90%;
     max-width: 700px;
-    min-height: 400px;
     color: var(--ink);
     background-color: var(--darker-white);
     border-radius: 4px;
@@ -41,26 +36,98 @@ user-form {
         flex-direction: row;
         justify-content: space-between;
 
-        input {
+        #user-form-content-search-input {
           background-color: var(--darker-white);
           border: 1px solid #aaa;
           border-radius: 2px;
           padding: 6px;
-          width: 86%;
+          width: 79%;
         }
 
-        button {
+        #user-form-content-search-button {
           border: none;
           color: var(--white);
           background-color: var(--primary-color);
           border-radius: 2px;
-          width: 12%;
+          width: 20%;
+
+          i {
+            display: none;
+          }
+
+          span {
+            display: inline;
+          }
+
+          &[loading] {
+            i {
+              display: inline;
+            }
+
+            span {
+              display: none;
+            }
+          }
 
           &:hover {
             background-color: var(--secondary-color);
           }
         }
       }
+
+      .user-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--black-transparent);
+        margin: 64px 0;
+
+        i {
+          font-size: 128px;
+        }
+      }
     }
+
+    .user-form-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding: 16px 0 0;
+      border-top: 1px dashed var(--darkest-white);
+
+      .user-form-actions-cancel,
+      .user-form-actions-save {
+        border: none;
+        color: var(--white);
+        border-radius: 2px;
+        width: 20%;
+        padding: 8px;
+        margin-left: 1%;
+      }
+
+      .user-form-actions-cancel {
+        background-color: var(--primary-color);
+
+        &:hover {
+          background-color: var(--secondary-color);
+        }
+      }
+
+      .user-form-actions-save {
+        background-color: var(--primary-color);
+
+        &:hover {
+          background-color: var(--secondary-color);
+        }
+
+        &[disabled] {
+          background-color: var(--black-transparent);
+        }
+      }
+    }
+  }
+
+  &[open] {
+    display: flex;
   }
 }

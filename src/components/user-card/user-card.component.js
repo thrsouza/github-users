@@ -15,12 +15,24 @@ class UserCardController {
     });
   }
 
-  $onInit() {}
+  handleDelete() {
+    this.delete({ id: this.key });
+  }
 }
 
 class UserCard {
   constructor() {
-    this.bindings = { user: '=' };
+    this.bindings = {
+      key: '=',
+      name: '=',
+      login: '=',
+      avatar: '=',
+      bio: '=',
+      url: '=',
+      repos: '=',
+      followers: '=',
+      delete: '&?',
+    };
     this.template = template;
     this.controller = UserCardController;
   }

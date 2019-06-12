@@ -1,13 +1,10 @@
 user-list {
-  display: grid;
-  grid-template-rows: 64px auto;
-  grid-template-columns: auto;
-  grid-template-areas: 'user-list-header' 'user-list-content';
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   min-height: 100vh;
-  width: 100vw;
 
   #user-list-header {
-    grid-area: 'user-list-header';
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,13 +26,14 @@ user-list {
   }
 
   #user-list-content {
-    grid-area: 'user-list-content';
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    width: 860px;
 
     user-card {
+      width: 95%;
       margin: 0px 16px 16px;
 
       &:first-child {
@@ -47,7 +45,7 @@ user-list {
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: var(--ink-transparent);
+      color: var(--black-transparent);
       margin-top: 192px;
 
       i {

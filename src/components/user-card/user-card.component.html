@@ -1,17 +1,34 @@
 <section>
   <section class="user-card-header">
-    <img ng-src="{{ $ctrl.user.avatar_url }}" />
+    <img ng-src="{{ $ctrl.avatar }}" />
     <div>
-      <strong>{{ $ctrl.user.name }}</strong>
-      <span>@{{ $ctrl.user.login }}</span>
+      <strong>{{ $ctrl.name }}</strong>
+      <span>@{{ $ctrl.login }}</span>
     </div>
+    <i
+      class="fas fa-times user-card-delete"
+      ng-if="$ctrl.delete"
+      ng-click="$ctrl.handleDelete()"
+    ></i>
   </section>
   <section class="user-card-content">
-    <strong>BIO:</strong>
-    <p>{{ $ctrl.user.bio || 'Não determinado' }}</p>
+    <strong>DESCRIPTION:</strong>
+    <p>{{ $ctrl.bio || 'Description not registered.' }}</p>
     <div>
       <strong>URL:</strong>
-      <a ng-href="{{ $ctrl.user.html_url }}" target="__blank">{{ $ctrl.user.html_url }}</a>
+      <a ng-href="{{ $ctrl.url }}" target="__blank">{{ $ctrl.url }}</a>
     </div>
+  </section>
+  <section class="user-card-footer">
+    <ul>
+      <li>
+        <i class="fas fa-th-list"></i>
+        <span>{{ $ctrl.repos }} repositories</span>
+      </li>
+      <li>
+        <i class="fas fa-users"></i>
+        <span>{{ $ctrl.followers }} followers</span>
+      </li>
+    </ul>
   </section>
 </section>

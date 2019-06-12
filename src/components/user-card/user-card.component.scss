@@ -1,13 +1,13 @@
 user-card {
-  width: 95%;
-  max-width: 600px;
   color: var(--ink);
   background-color: var(--darker-white);
   border-radius: 4px;
 
   .user-card-header {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 64px auto 48px;
+
     padding: 12px;
     border-bottom: 1px dashed var(--darkest-white);
 
@@ -16,11 +16,26 @@ user-card {
       width: 64px;
       border-radius: 50px;
     }
+
     div {
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin-left: 12px;
+    }
+
+    .user-card-delete {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--black-transparent);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--red);
+      }
     }
   }
 
@@ -31,7 +46,7 @@ user-card {
 
     strong {
       font-size: 14px;
-      color: var(--ink-transparent);
+      color: var(--black-transparent);
     }
 
     p {
@@ -40,6 +55,25 @@ user-card {
 
     a {
       color: var(--secondary-color);
+    }
+  }
+
+  .user-card-footer > ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 24px 8px;
+    border-top: 1px dashed var(--darkest-white);
+
+    li {
+      list-style: none;
+      margin: 0 8px;
+      color: var(--black-transparent);
+
+      span {
+        margin: 0 4px;
+      }
     }
   }
 }

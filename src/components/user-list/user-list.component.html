@@ -1,22 +1,32 @@
 <header id="user-list-header">
   <i class="fab fa-github"></i>
-  <span>Github Users</span>
+  <span>
+    Github Users
+    <span ng-if="$ctrl.users.length > 0">({{ $ctrl.users.length }})</span>
+  </span>
 </header>
 
 <section id="user-list-content">
   <user-card
-    ng-repeat="user in $ctrl.users"
-    user="user"
-    onRemove="$ctrl.handleRemoveUser"
+    ng-if="$ctrl.users"
+    ng-repeat="user in $ctrl.users track by user.id"
+    key="user.id"
+    name="user.name"
+    login="user.login"
+    avatar="user.avatar"
+    bio="user.bio"
+    url="user.url"
+    repos="user.repos"
+    followers="user.followers"
+    delete="$ctrl.handleDelete(id)"
   ></user-card>
 
   <div class="user-list-empty" ng-if="$ctrl.users.length == 0">
     <i class="fab fa-github-alt"></i>
-    <span>Github Users Empty!</span>
+    <span>No users found!</span>
   </div>
 
-  <!-- <user-form hidden></user-form> -->
-  <user-form></user-form>
+  <user-form callback="$ctrl.handleSaveUser(data)"></user-form>
 
   <div class="fab-button" ng-click="$ctrl.handleAddUser()">
     <i class="fas fa-plus"></i>

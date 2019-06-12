@@ -4,6 +4,7 @@ import 'angular-aria';
 import 'angular-messages';
 import 'angular-resource';
 import 'angular-sanitize';
+import 'ng-redux';
 
 export const app = angular.module('app', [
   'ngAnimate',
@@ -11,4 +12,5 @@ export const app = angular.module('app', [
   'ngMessages',
   'ngResource',
   'ngSanitize',
+  'ngRedux',
 ]);

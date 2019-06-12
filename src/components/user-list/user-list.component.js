@@ -5,67 +5,40 @@ import './user-list.component.scss';
 
 class UserListController {
   static get $inject() {
-    return ['$scope', '$element', '$http'];
+    return ['$scope', '$element', '$ngRedux'];
   }
 
-  constructor($scope, $element, $http) {
+  constructor($scope, $element, $ngRedux) {
     Object.assign(this, {
       $: $element[0],
       $scope,
-      $http,
+      $ngRedux,
     });
 
-    this.users = [
-      {
-        login: 'thiagodesouza',
-        id: 6491925,
-        html_url: 'https://github.com/thiagodesouza',
-        avatar_url: 'https://avatars3.githubusercontent.com/u/6491925?v=4',
-        url: 'https://api.github.com/users/thiagodesouza',
-        name: 'Thiago de Souza',
-        bio:
-          'Systems Development Analyst who, in his spare time, besides coding, likes to listen good songs, explore new technologies and spend time with his family. ',
-      },
-      {
-        login: 'thiagodesouza',
-        id: 6491925,
-        html_url: 'https://github.com/thiagodesouza',
-        avatar_url: 'https://avatars3.githubusercontent.com/u/6491925?v=4',
-        url: 'https://api.github.com/users/thiagodesouza',
-        name: 'Thiago de Souza',
-        bio:
-          'Systems Development Analyst who, in his spare time, besides coding, likes to listen good songs, explore new technologies and spend time with his family. ',
-      },
-      {
-        login: 'thiagodesouza',
-        id: 6491925,
-        html_url: 'https://github.com/thiagodesouza',
-        avatar_url: 'https://avatars3.githubusercontent.com/u/6491925?v=4',
-        url: 'https://api.github.com/users/thiagodesouza',
-        name: 'Thiago de Souza',
-        bio:
-          'Systems Development Analyst who, in his spare time, besides coding, likes to listen good songs, explore new technologies and spend time with his family. ',
-      },
-    ];
+    this.__store = $ngRedux.connect(store =>
+      Object({
+        users: store.users.data,
+      }),
+    )(this);
   }
 
-  $onInit() {
-    if (this.$.hasAttribute('unresolved')) {
-      this.$.removeAttribute('unresolved');
-    }
+  $onDestroy() {
+    this.__store();
   }
 
   handleAddUser() {
     const userform = this.$.querySelector('user-form');
-
-    if (userform.hasAttribute('hidden')) {
-      userform.removeAttribute('hidden');
+    if (userform) {
+      userform.toggle();
     }
   }
 
-  handleRemoveUser(user) {
-    // eslint-disable-next-line no-console
-    console.log(`Remove user: ${user.id}`);
+  handleSaveUser(user) {
+    this.$ngRedux.dispatch({ type: 'ADD_USER', data: user });
+  }
+
+  handleDelete(id) {
+    this.$ngRedux.dispatch({ type: 'DELETE_USER', data: { id } });
   }
 }
 

@@ -1,10 +1,32 @@
-<section>
-  <strong class="user-form-title">User Form</strong>
+<section id="user-form">
+  <strong class="user-form-title">Add New User</strong>
   <div class="user-form-content">
     <div class="user-form-content-search">
-      <input id="username" type="text" placeholder="Enter with username..." />
-      <button ng-click="$ctrl.handleSearchButton()">Search</button>
+      <input id="user-form-content-search-input" type="text" placeholder="Enter with username..." />
+      <button id="user-form-content-search-button" ng-click="$ctrl.handleSearchButton()">
+        <i class="fas fa-hourglass-half"></i>
+        <span>Search</span>
+      </button>
     </div>
-    <!-- <user-card ng-if="$ctrl.user" user="$ctrl.user"></user-card> -->
+    <user-card
+      ng-if="$ctrl.user"
+      key="$ctrl.user.id"
+      name="$ctrl.user.name"
+      login="$ctrl.user.login"
+      avatar="$ctrl.user.avatar_url"
+      bio="$ctrl.user.bio"
+      url="$ctrl.user.html_url"
+      repos="$ctrl.user.public_repos"
+      followers="$ctrl.user.followers"
+    ></user-card>
+    <div class="user-empty" ng-if="!$ctrl.user">
+      <i class="fab fa-github-alt"></i>
+    </div>
+  </div>
+  <div class="user-form-actions">
+    <button class="user-form-actions-cancel" ng-click="$ctrl.cancel()">Cancel</button>
+    <button class="user-form-actions-save" ng-click="$ctrl.save()" ng-disabled="!$ctrl.userIsValid">
+      Save
+    </button>
   </div>
 </section>

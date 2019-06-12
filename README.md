@@ -1,6 +1,10 @@
 # Github Users
 
-This project was created to `Marinito Front-end Challange` - `Angularjs v1.7.x`.
+This project was created to `Marinito Front-end Challenge` - `Angularjs v1.7.x`.
+
+> Instructor: [@mario-aleo](https://github.com/mario-aleo)
+
+![001](./assets/001-user-list.png)
 
 ## License
 
